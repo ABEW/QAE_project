@@ -1,6 +1,5 @@
 import tensorflow as tf
 from pathlib import Path
-# import matplotlib.pyplot as plt
 
 
 def decode_img(img):
@@ -18,11 +17,12 @@ def load_set(img_path, set_type='train'):
 	list_ds = tf.data.Dataset.list_files(
 		str(img_path/'*.png'))
 	dataset = list_ds.map(process_path,
-		num_parallel_calls=tf.data.experimental.AUTOTUNE)
+		num_parallel_calls=
+		tf.data.experimental.AUTOTUNE)
 	return dataset
 
-def load_data(dataset='mias'):
-	DIR = Path('.')
+def load_data(dataset='mias',DIR = Path('.')):
+	
 	if dataset == 'mias':
 		path = DIR/'mias_dataset'
 	elif dataset == 'dental':
@@ -55,6 +55,8 @@ def load_data(dataset='mias'):
 
 
 # if __name__ =='__main__':
+
+# 	import matplotlib.pyplot as plt
 
 # 	train,_,test = load_data(dataset='dental')
 
